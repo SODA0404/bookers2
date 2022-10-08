@@ -1,0 +1,32 @@
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <%= render partial: '/layouts/post', locals: { user: @user, new_book: @new_book } %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |list| %>
+            <tr>
+              <td><a href="<%= user_path(@user.id) %>">
+                <%= image_tag @user.get_profile_image(80, 80) %>
+              </a></td>
+              <td><%= link_to list.title, book_path(list.id) %></td>
+              <td><%= list.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
