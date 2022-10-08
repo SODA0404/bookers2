@@ -23,6 +23,7 @@
               </a></td>
               <td><%= link_to list.title, book_path(list.id) %></td>
               <td><%= list.body %></td>
+              <td>コメント数:<%= list.book_comments.count %></td>
             </tr>
           <% end %>
         </tbody>
